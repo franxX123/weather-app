@@ -1,4 +1,8 @@
-console.log("Client side javascript file is loaded!");
+const weatherForm = document.querySelector("form");
+const locationField = document.querySelector("input");
+const forecastPara = document.querySelector(".forecast");
+const locationPara = document.querySelector(".location");
+const isLoadingPara = document.querySelector(".isLoading");
 
 const getLocationForecast = async (address = "boston") => {
   const response = await fetch(
@@ -25,14 +29,8 @@ const getLocationForecast = async (address = "boston") => {
   };
 };
 
-const weatherForm = document.querySelector("form");
-const locationField = document.querySelector("input");
-
 weatherForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const forecastPara = document.querySelector(".forecast");
-  const locationPara = document.querySelector(".location");
-  const isLoadingPara = document.querySelector(".isLoading");
 
   try {
     isLoadingPara.textContent = "Loading...";
