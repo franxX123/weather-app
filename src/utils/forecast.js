@@ -19,9 +19,13 @@ const forecast = (lat, long, callBack) => {
 
     const currentData = response.body.current;
 
+    console.log(currentData);
+
     callBack(
       undefined,
-      `${currentData.weather_descriptions[0]}. It is currently ${
+      `${currentData.weather_descriptions[0]} at ${
+        currentData.observation_time
+      }. . It is currently ${
         currentData.temperature
       } degrees out, but it feels like ${currentData.feelslike}. There is a ${
         currentData.precip.toFixed(1) * 100.0
