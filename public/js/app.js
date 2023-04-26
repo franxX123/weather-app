@@ -5,12 +5,10 @@ const locationPara = document.querySelector(".location");
 const isLoadingPara = document.querySelector(".isLoading");
 
 const getLocationForecast = async (address = "boston") => {
-  const response = await fetch(
-    `http://localhost:3000/weather?address=${address}`,
-    {
-      method: "get",
-    }
-  );
+  const domain = "http://localhost:3000";
+  const response = await fetch(`/weather?address=${address}`, {
+    method: "get",
+  });
 
   if (!response.ok) {
     throw new Error("Error in fetching data.");
